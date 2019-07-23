@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.com/s12v/go-jwks.svg?branch=master)](https://travis-ci.com/s12v/go-jwks)
 [![codecov](https://codecov.io/gh/s12v/go-jwks/branch/master/graph/badge.svg)](https://codecov.io/gh/s12v/go-jwks)
+
 # go-jwks
 
 A Go library to retrieve RSA public keys from a JWKS (JSON Web Key Set) endpoint.
@@ -14,8 +15,8 @@ go get github.com/s12v/go-jwks@v0.2.0
 
 ## Dependencies
 
- * `github.com/square/go-jose` - JWT library
- * `github.com/patrickmn/go-cache` - default in-memory cache
+- `github.com/square/go-jose/v3` - JWT library
+- `github.com/patrickmn/go-cache` - default in-memory cache
 
 ## Example
 
@@ -26,7 +27,7 @@ package main
 
 import (
 	"github.com/s12v/go-jwks"
-	"github.com/square/go-jose"
+	jose "github.com/square/go-jose/v3"
 	"time"
 	"log"
 )
@@ -61,8 +62,9 @@ Log:
 ### Key refresh and TTL
 
 There are two caching parameters:
- - `refresh` - the key will be fetched from the source after this interval 
- - `ttl` - if not used, the key will be deleted from cache 
+
+- `refresh` - the key will be fetched from the source after this interval
+- `ttl` - if not used, the key will be deleted from cache
 
 On the first request, the key is synchronously fetched from the key server and stored in the cache.
 On the next request after `refresh` interval, the key will be refreshed in the background (not affect response time).

@@ -3,9 +3,10 @@ package jwks
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/square/go-jose"
 	"log"
 	"net/http"
+
+	jose "github.com/square/go-jose/v3"
 )
 
 type JWKSSource interface {
